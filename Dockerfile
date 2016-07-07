@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER MarvAmBass
+MAINTAINER Ron Arts <ron.arts@p711.net>
 
 ## Install Postfix.
 
@@ -12,12 +12,13 @@ RUN echo mail > /etc/hostname; \
 RUN debconf-set-selections preseed.txt
 
 # install
-RUN apt-get update; apt-get install -y \
+RUN apt-get update; apt-get install -y -f --no-install-recommends \
     postfix \
     opendkim \
     mailutils \
     opendkim-tools \
-    sasl2-bin
+    sasl2-bin \
+    && rm -rf /var/lib/apt/lists/* 
 
 ## Configure Postfix
 
