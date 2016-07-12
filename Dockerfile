@@ -4,7 +4,7 @@ MAINTAINER Ron Arts <ron.arts@p711.net>
 ## Install Postfix.
 
 # pre config
-RUN echo mail > /etc/hostname; \
+RUN echo mail > /etc/hostname;  \
     echo "postfix postfix/main_mailer_type string Internet site" > preseed.txt; \
     echo "postfix postfix/mailname string mail.example.com" >> preseed.txt
 
